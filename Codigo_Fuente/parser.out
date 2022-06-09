@@ -1,0 +1,3764 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    BGN
+    CALL
+    CBRT
+    CM
+    COMMENT
+    DO
+    ELSE
+    END
+    ENDL
+    EQL_DIV
+    EQL_MULT
+    EQL_SUB
+    EQL_SUM
+    FLT
+    IF
+    OBRT
+    PCD
+    STR
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> block
+Rule 2     block -> declaracion
+Rule 3     block -> While
+Rule 4     block -> condicional
+Rule 5     declaracion -> empty
+Rule 6     declaracion -> asignacion ENDST
+Rule 7     asignacion -> IDF EQL expresion
+Rule 8     asignacion -> asignacion ENDST IDF EQL expresion ENDST
+Rule 9     While -> WHL OPRT expresion CPRT OKEY expresion CKEY
+Rule 10    expresion -> INT
+Rule 11    expresion -> CHR
+Rule 12    condicional -> OPRT expresion CPRT OKEY expresion CKEY
+Rule 13    condicional -> OPRT expresion CPRT OKEY declaracion CKEY
+Rule 14    condicional -> OPRT expresion CPRT OKEY empty CKEY
+Rule 15    empty -> <empty>
+Rule 16    expresion -> expresion ADD expresion
+Rule 17    expresion -> expresion SUBST expresion
+Rule 18    expresion -> expresion MULT expresion
+Rule 19    expresion -> expresion DIV expresion
+Rule 20    expresion -> expresion SML expresion
+Rule 21    expresion -> expresion GRT expresion
+Rule 22    expresion -> expresion SMLE expresion
+Rule 23    expresion -> expresion GRTE expresion
+Rule 24    expresion -> expresion EQL expresion
+Rule 25    expresion -> expresion DIF expresion
+Rule 26    expresion -> IDF SML IDF
+Rule 27    expresion -> IDF GRT IDF
+Rule 28    expresion -> IDF SMLE IDF
+Rule 29    expresion -> IDF GRTE IDF
+Rule 30    expresion -> IDF EQL IDF
+Rule 31    expresion -> IDF DIF IDF
+Rule 32    expresion -> OPRT expresion CPRT SML OPRT expresion CPRT
+Rule 33    expresion -> OPRT expresion CPRT GRT OPRT expresion CPRT
+Rule 34    expresion -> OPRT expresion CPRT SMLE OPRT expresion CPRT
+Rule 35    expresion -> OPRT expresion CPRT GRTE OPRT expresion CPRT
+Rule 36    expresion -> OPRT expresion CPRT EQL OPRT expresion CPRT
+Rule 37    expresion -> OPRT expresion CPRT DIF OPRT expresion CPRT
+Rule 38    expresion -> expresion AND expresion
+Rule 39    expresion -> expresion OR expresion
+Rule 40    expresion -> expresion NOT expresion
+Rule 41    expresion -> OPRT expresion AND expresion CPRT
+Rule 42    expresion -> OPRT expresion OR expresion CPRT
+Rule 43    expresion -> OPRT expresion NOT expresion CPRT
+
+Terminals, with rules where they appear
+
+ADD                  : 16
+AND                  : 38 41
+BGN                  : 
+CALL                 : 
+CBRT                 : 
+CHR                  : 11
+CKEY                 : 9 12 13 14
+CM                   : 
+COMMENT              : 
+CPRT                 : 9 12 13 14 32 32 33 33 34 34 35 35 36 36 37 37 41 42 43
+DIF                  : 25 31 37
+DIV                  : 19
+DO                   : 
+ELSE                 : 
+END                  : 
+ENDL                 : 
+ENDST                : 6 8 8
+EQL                  : 7 8 24 30 36
+EQL_DIV              : 
+EQL_MULT             : 
+EQL_SUB              : 
+EQL_SUM              : 
+FLT                  : 
+GRT                  : 21 27 33
+GRTE                 : 23 29 35
+IDF                  : 7 8 26 26 27 27 28 28 29 29 30 30 31 31
+IF                   : 
+INT                  : 10
+MULT                 : 18
+NOT                  : 40 43
+OBRT                 : 
+OKEY                 : 9 12 13 14
+OPRT                 : 9 12 13 14 32 32 33 33 34 34 35 35 36 36 37 37 41 42 43
+OR                   : 39 42
+PCD                  : 
+SML                  : 20 26 32
+SMLE                 : 22 28 34
+STR                  : 
+SUBST                : 17
+WHL                  : 9
+error                : 
+
+Nonterminals, with rules where they appear
+
+While                : 3
+asignacion           : 6 8
+block                : 1
+condicional          : 4
+declaracion          : 2 13
+empty                : 5 14
+expresion            : 7 8 9 9 12 12 13 14 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 24 24 25 25 32 32 33 33 34 34 35 35 36 36 37 37 38 38 39 39 40 40 41 41 42 42 43 43
+program              : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . block
+    (2) block -> . declaracion
+    (3) block -> . While
+    (4) block -> . condicional
+    (5) declaracion -> . empty
+    (6) declaracion -> . asignacion ENDST
+    (9) While -> . WHL OPRT expresion CPRT OKEY expresion CKEY
+    (12) condicional -> . OPRT expresion CPRT OKEY expresion CKEY
+    (13) condicional -> . OPRT expresion CPRT OKEY declaracion CKEY
+    (14) condicional -> . OPRT expresion CPRT OKEY empty CKEY
+    (15) empty -> .
+    (7) asignacion -> . IDF EQL expresion
+    (8) asignacion -> . asignacion ENDST IDF EQL expresion ENDST
+
+    WHL             shift and go to state 8
+    OPRT            shift and go to state 9
+    $end            reduce using rule 15 (empty -> .)
+    IDF             shift and go to state 10
+
+    program                        shift and go to state 1
+    block                          shift and go to state 2
+    declaracion                    shift and go to state 3
+    While                          shift and go to state 4
+    condicional                    shift and go to state 5
+    empty                          shift and go to state 6
+    asignacion                     shift and go to state 7
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> block .
+
+    $end            reduce using rule 1 (program -> block .)
+
+
+state 3
+
+    (2) block -> declaracion .
+
+    $end            reduce using rule 2 (block -> declaracion .)
+
+
+state 4
+
+    (3) block -> While .
+
+    $end            reduce using rule 3 (block -> While .)
+
+
+state 5
+
+    (4) block -> condicional .
+
+    $end            reduce using rule 4 (block -> condicional .)
+
+
+state 6
+
+    (5) declaracion -> empty .
+
+    $end            reduce using rule 5 (declaracion -> empty .)
+
+
+state 7
+
+    (6) declaracion -> asignacion . ENDST
+    (8) asignacion -> asignacion . ENDST IDF EQL expresion ENDST
+
+    ENDST           shift and go to state 11
+
+
+state 8
+
+    (9) While -> WHL . OPRT expresion CPRT OKEY expresion CKEY
+
+    OPRT            shift and go to state 12
+
+
+state 9
+
+    (12) condicional -> OPRT . expresion CPRT OKEY expresion CKEY
+    (13) condicional -> OPRT . expresion CPRT OKEY declaracion CKEY
+    (14) condicional -> OPRT . expresion CPRT OKEY empty CKEY
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 14
+
+state 10
+
+    (7) asignacion -> IDF . EQL expresion
+
+    EQL             shift and go to state 18
+
+
+state 11
+
+    (6) declaracion -> asignacion ENDST .
+    (8) asignacion -> asignacion ENDST . IDF EQL expresion ENDST
+
+    $end            reduce using rule 6 (declaracion -> asignacion ENDST .)
+    CKEY            reduce using rule 6 (declaracion -> asignacion ENDST .)
+    IDF             shift and go to state 19
+
+
+state 12
+
+    (9) While -> WHL OPRT . expresion CPRT OKEY expresion CKEY
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 20
+
+state 13
+
+    (32) expresion -> OPRT . expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> OPRT . expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> OPRT . expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> OPRT . expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> OPRT . expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> OPRT . expresion CPRT DIF OPRT expresion CPRT
+    (41) expresion -> OPRT . expresion AND expresion CPRT
+    (42) expresion -> OPRT . expresion OR expresion CPRT
+    (43) expresion -> OPRT . expresion NOT expresion CPRT
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 21
+
+state 14
+
+    (12) condicional -> OPRT expresion . CPRT OKEY expresion CKEY
+    (13) condicional -> OPRT expresion . CPRT OKEY declaracion CKEY
+    (14) condicional -> OPRT expresion . CPRT OKEY empty CKEY
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+    CPRT            shift and go to state 22
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+
+state 15
+
+    (10) expresion -> INT .
+
+    CPRT            reduce using rule 10 (expresion -> INT .)
+    ADD             reduce using rule 10 (expresion -> INT .)
+    SUBST           reduce using rule 10 (expresion -> INT .)
+    MULT            reduce using rule 10 (expresion -> INT .)
+    DIV             reduce using rule 10 (expresion -> INT .)
+    SML             reduce using rule 10 (expresion -> INT .)
+    GRT             reduce using rule 10 (expresion -> INT .)
+    SMLE            reduce using rule 10 (expresion -> INT .)
+    GRTE            reduce using rule 10 (expresion -> INT .)
+    EQL             reduce using rule 10 (expresion -> INT .)
+    DIF             reduce using rule 10 (expresion -> INT .)
+    AND             reduce using rule 10 (expresion -> INT .)
+    OR              reduce using rule 10 (expresion -> INT .)
+    NOT             reduce using rule 10 (expresion -> INT .)
+    ENDST           reduce using rule 10 (expresion -> INT .)
+    CKEY            reduce using rule 10 (expresion -> INT .)
+
+
+state 16
+
+    (11) expresion -> CHR .
+
+    CPRT            reduce using rule 11 (expresion -> CHR .)
+    ADD             reduce using rule 11 (expresion -> CHR .)
+    SUBST           reduce using rule 11 (expresion -> CHR .)
+    MULT            reduce using rule 11 (expresion -> CHR .)
+    DIV             reduce using rule 11 (expresion -> CHR .)
+    SML             reduce using rule 11 (expresion -> CHR .)
+    GRT             reduce using rule 11 (expresion -> CHR .)
+    SMLE            reduce using rule 11 (expresion -> CHR .)
+    GRTE            reduce using rule 11 (expresion -> CHR .)
+    EQL             reduce using rule 11 (expresion -> CHR .)
+    DIF             reduce using rule 11 (expresion -> CHR .)
+    AND             reduce using rule 11 (expresion -> CHR .)
+    OR              reduce using rule 11 (expresion -> CHR .)
+    NOT             reduce using rule 11 (expresion -> CHR .)
+    ENDST           reduce using rule 11 (expresion -> CHR .)
+    CKEY            reduce using rule 11 (expresion -> CHR .)
+
+
+state 17
+
+    (26) expresion -> IDF . SML IDF
+    (27) expresion -> IDF . GRT IDF
+    (28) expresion -> IDF . SMLE IDF
+    (29) expresion -> IDF . GRTE IDF
+    (30) expresion -> IDF . EQL IDF
+    (31) expresion -> IDF . DIF IDF
+
+    SML             shift and go to state 36
+    GRT             shift and go to state 37
+    SMLE            shift and go to state 38
+    GRTE            shift and go to state 39
+    EQL             shift and go to state 40
+    DIF             shift and go to state 41
+
+
+state 18
+
+    (7) asignacion -> IDF EQL . expresion
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 42
+
+state 19
+
+    (8) asignacion -> asignacion ENDST IDF . EQL expresion ENDST
+
+    EQL             shift and go to state 43
+
+
+state 20
+
+    (9) While -> WHL OPRT expresion . CPRT OKEY expresion CKEY
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+    CPRT            shift and go to state 44
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+
+state 21
+
+    (32) expresion -> OPRT expresion . CPRT SML OPRT expresion CPRT
+    (33) expresion -> OPRT expresion . CPRT GRT OPRT expresion CPRT
+    (34) expresion -> OPRT expresion . CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> OPRT expresion . CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> OPRT expresion . CPRT EQL OPRT expresion CPRT
+    (37) expresion -> OPRT expresion . CPRT DIF OPRT expresion CPRT
+    (41) expresion -> OPRT expresion . AND expresion CPRT
+    (42) expresion -> OPRT expresion . OR expresion CPRT
+    (43) expresion -> OPRT expresion . NOT expresion CPRT
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+    CPRT            shift and go to state 45
+    AND             shift and go to state 46
+    OR              shift and go to state 47
+    NOT             shift and go to state 48
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+
+
+state 22
+
+    (12) condicional -> OPRT expresion CPRT . OKEY expresion CKEY
+    (13) condicional -> OPRT expresion CPRT . OKEY declaracion CKEY
+    (14) condicional -> OPRT expresion CPRT . OKEY empty CKEY
+
+    OKEY            shift and go to state 49
+
+
+state 23
+
+    (16) expresion -> expresion ADD . expresion
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 50
+
+state 24
+
+    (17) expresion -> expresion SUBST . expresion
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 51
+
+state 25
+
+    (18) expresion -> expresion MULT . expresion
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 52
+
+state 26
+
+    (19) expresion -> expresion DIV . expresion
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 53
+
+state 27
+
+    (20) expresion -> expresion SML . expresion
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 54
+
+state 28
+
+    (21) expresion -> expresion GRT . expresion
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 55
+
+state 29
+
+    (22) expresion -> expresion SMLE . expresion
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 56
+
+state 30
+
+    (23) expresion -> expresion GRTE . expresion
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 57
+
+state 31
+
+    (24) expresion -> expresion EQL . expresion
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 58
+
+state 32
+
+    (25) expresion -> expresion DIF . expresion
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 59
+
+state 33
+
+    (38) expresion -> expresion AND . expresion
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 60
+
+state 34
+
+    (39) expresion -> expresion OR . expresion
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 61
+
+state 35
+
+    (40) expresion -> expresion NOT . expresion
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 62
+
+state 36
+
+    (26) expresion -> IDF SML . IDF
+
+    IDF             shift and go to state 63
+
+
+state 37
+
+    (27) expresion -> IDF GRT . IDF
+
+    IDF             shift and go to state 64
+
+
+state 38
+
+    (28) expresion -> IDF SMLE . IDF
+
+    IDF             shift and go to state 65
+
+
+state 39
+
+    (29) expresion -> IDF GRTE . IDF
+
+    IDF             shift and go to state 66
+
+
+state 40
+
+    (30) expresion -> IDF EQL . IDF
+
+    IDF             shift and go to state 67
+
+
+state 41
+
+    (31) expresion -> IDF DIF . IDF
+
+    IDF             shift and go to state 68
+
+
+state 42
+
+    (7) asignacion -> IDF EQL expresion .
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+    ENDST           reduce using rule 7 (asignacion -> IDF EQL expresion .)
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+
+state 43
+
+    (8) asignacion -> asignacion ENDST IDF EQL . expresion ENDST
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 69
+
+state 44
+
+    (9) While -> WHL OPRT expresion CPRT . OKEY expresion CKEY
+
+    OKEY            shift and go to state 70
+
+
+state 45
+
+    (32) expresion -> OPRT expresion CPRT . SML OPRT expresion CPRT
+    (33) expresion -> OPRT expresion CPRT . GRT OPRT expresion CPRT
+    (34) expresion -> OPRT expresion CPRT . SMLE OPRT expresion CPRT
+    (35) expresion -> OPRT expresion CPRT . GRTE OPRT expresion CPRT
+    (36) expresion -> OPRT expresion CPRT . EQL OPRT expresion CPRT
+    (37) expresion -> OPRT expresion CPRT . DIF OPRT expresion CPRT
+
+    SML             shift and go to state 71
+    GRT             shift and go to state 72
+    SMLE            shift and go to state 73
+    GRTE            shift and go to state 74
+    EQL             shift and go to state 75
+    DIF             shift and go to state 76
+
+
+state 46
+
+    (41) expresion -> OPRT expresion AND . expresion CPRT
+    (38) expresion -> expresion AND . expresion
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 77
+
+state 47
+
+    (42) expresion -> OPRT expresion OR . expresion CPRT
+    (39) expresion -> expresion OR . expresion
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 78
+
+state 48
+
+    (43) expresion -> OPRT expresion NOT . expresion CPRT
+    (40) expresion -> expresion NOT . expresion
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 79
+
+state 49
+
+    (12) condicional -> OPRT expresion CPRT OKEY . expresion CKEY
+    (13) condicional -> OPRT expresion CPRT OKEY . declaracion CKEY
+    (14) condicional -> OPRT expresion CPRT OKEY . empty CKEY
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+    (5) declaracion -> . empty
+    (6) declaracion -> . asignacion ENDST
+    (15) empty -> .
+    (7) asignacion -> . IDF EQL expresion
+    (8) asignacion -> . asignacion ENDST IDF EQL expresion ENDST
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 83
+    OPRT            shift and go to state 13
+    CKEY            reduce using rule 15 (empty -> .)
+
+    expresion                      shift and go to state 80
+    declaracion                    shift and go to state 81
+    empty                          shift and go to state 82
+    asignacion                     shift and go to state 7
+
+state 50
+
+    (16) expresion -> expresion ADD expresion .
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for SUBST resolved as shift
+  ! shift/reduce conflict for MULT resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for SML resolved as shift
+  ! shift/reduce conflict for GRT resolved as shift
+  ! shift/reduce conflict for SMLE resolved as shift
+  ! shift/reduce conflict for GRTE resolved as shift
+  ! shift/reduce conflict for EQL resolved as shift
+  ! shift/reduce conflict for DIF resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+    CPRT            reduce using rule 16 (expresion -> expresion ADD expresion .)
+    ENDST           reduce using rule 16 (expresion -> expresion ADD expresion .)
+    CKEY            reduce using rule 16 (expresion -> expresion ADD expresion .)
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+  ! ADD             [ reduce using rule 16 (expresion -> expresion ADD expresion .) ]
+  ! SUBST           [ reduce using rule 16 (expresion -> expresion ADD expresion .) ]
+  ! MULT            [ reduce using rule 16 (expresion -> expresion ADD expresion .) ]
+  ! DIV             [ reduce using rule 16 (expresion -> expresion ADD expresion .) ]
+  ! SML             [ reduce using rule 16 (expresion -> expresion ADD expresion .) ]
+  ! GRT             [ reduce using rule 16 (expresion -> expresion ADD expresion .) ]
+  ! SMLE            [ reduce using rule 16 (expresion -> expresion ADD expresion .) ]
+  ! GRTE            [ reduce using rule 16 (expresion -> expresion ADD expresion .) ]
+  ! EQL             [ reduce using rule 16 (expresion -> expresion ADD expresion .) ]
+  ! DIF             [ reduce using rule 16 (expresion -> expresion ADD expresion .) ]
+  ! AND             [ reduce using rule 16 (expresion -> expresion ADD expresion .) ]
+  ! OR              [ reduce using rule 16 (expresion -> expresion ADD expresion .) ]
+  ! NOT             [ reduce using rule 16 (expresion -> expresion ADD expresion .) ]
+
+
+state 51
+
+    (17) expresion -> expresion SUBST expresion .
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for SUBST resolved as shift
+  ! shift/reduce conflict for MULT resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for SML resolved as shift
+  ! shift/reduce conflict for GRT resolved as shift
+  ! shift/reduce conflict for SMLE resolved as shift
+  ! shift/reduce conflict for GRTE resolved as shift
+  ! shift/reduce conflict for EQL resolved as shift
+  ! shift/reduce conflict for DIF resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+    CPRT            reduce using rule 17 (expresion -> expresion SUBST expresion .)
+    ENDST           reduce using rule 17 (expresion -> expresion SUBST expresion .)
+    CKEY            reduce using rule 17 (expresion -> expresion SUBST expresion .)
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+  ! ADD             [ reduce using rule 17 (expresion -> expresion SUBST expresion .) ]
+  ! SUBST           [ reduce using rule 17 (expresion -> expresion SUBST expresion .) ]
+  ! MULT            [ reduce using rule 17 (expresion -> expresion SUBST expresion .) ]
+  ! DIV             [ reduce using rule 17 (expresion -> expresion SUBST expresion .) ]
+  ! SML             [ reduce using rule 17 (expresion -> expresion SUBST expresion .) ]
+  ! GRT             [ reduce using rule 17 (expresion -> expresion SUBST expresion .) ]
+  ! SMLE            [ reduce using rule 17 (expresion -> expresion SUBST expresion .) ]
+  ! GRTE            [ reduce using rule 17 (expresion -> expresion SUBST expresion .) ]
+  ! EQL             [ reduce using rule 17 (expresion -> expresion SUBST expresion .) ]
+  ! DIF             [ reduce using rule 17 (expresion -> expresion SUBST expresion .) ]
+  ! AND             [ reduce using rule 17 (expresion -> expresion SUBST expresion .) ]
+  ! OR              [ reduce using rule 17 (expresion -> expresion SUBST expresion .) ]
+  ! NOT             [ reduce using rule 17 (expresion -> expresion SUBST expresion .) ]
+
+
+state 52
+
+    (18) expresion -> expresion MULT expresion .
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for SUBST resolved as shift
+  ! shift/reduce conflict for MULT resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for SML resolved as shift
+  ! shift/reduce conflict for GRT resolved as shift
+  ! shift/reduce conflict for SMLE resolved as shift
+  ! shift/reduce conflict for GRTE resolved as shift
+  ! shift/reduce conflict for EQL resolved as shift
+  ! shift/reduce conflict for DIF resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+    CPRT            reduce using rule 18 (expresion -> expresion MULT expresion .)
+    ENDST           reduce using rule 18 (expresion -> expresion MULT expresion .)
+    CKEY            reduce using rule 18 (expresion -> expresion MULT expresion .)
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+  ! ADD             [ reduce using rule 18 (expresion -> expresion MULT expresion .) ]
+  ! SUBST           [ reduce using rule 18 (expresion -> expresion MULT expresion .) ]
+  ! MULT            [ reduce using rule 18 (expresion -> expresion MULT expresion .) ]
+  ! DIV             [ reduce using rule 18 (expresion -> expresion MULT expresion .) ]
+  ! SML             [ reduce using rule 18 (expresion -> expresion MULT expresion .) ]
+  ! GRT             [ reduce using rule 18 (expresion -> expresion MULT expresion .) ]
+  ! SMLE            [ reduce using rule 18 (expresion -> expresion MULT expresion .) ]
+  ! GRTE            [ reduce using rule 18 (expresion -> expresion MULT expresion .) ]
+  ! EQL             [ reduce using rule 18 (expresion -> expresion MULT expresion .) ]
+  ! DIF             [ reduce using rule 18 (expresion -> expresion MULT expresion .) ]
+  ! AND             [ reduce using rule 18 (expresion -> expresion MULT expresion .) ]
+  ! OR              [ reduce using rule 18 (expresion -> expresion MULT expresion .) ]
+  ! NOT             [ reduce using rule 18 (expresion -> expresion MULT expresion .) ]
+
+
+state 53
+
+    (19) expresion -> expresion DIV expresion .
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for SUBST resolved as shift
+  ! shift/reduce conflict for MULT resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for SML resolved as shift
+  ! shift/reduce conflict for GRT resolved as shift
+  ! shift/reduce conflict for SMLE resolved as shift
+  ! shift/reduce conflict for GRTE resolved as shift
+  ! shift/reduce conflict for EQL resolved as shift
+  ! shift/reduce conflict for DIF resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+    CPRT            reduce using rule 19 (expresion -> expresion DIV expresion .)
+    ENDST           reduce using rule 19 (expresion -> expresion DIV expresion .)
+    CKEY            reduce using rule 19 (expresion -> expresion DIV expresion .)
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+  ! ADD             [ reduce using rule 19 (expresion -> expresion DIV expresion .) ]
+  ! SUBST           [ reduce using rule 19 (expresion -> expresion DIV expresion .) ]
+  ! MULT            [ reduce using rule 19 (expresion -> expresion DIV expresion .) ]
+  ! DIV             [ reduce using rule 19 (expresion -> expresion DIV expresion .) ]
+  ! SML             [ reduce using rule 19 (expresion -> expresion DIV expresion .) ]
+  ! GRT             [ reduce using rule 19 (expresion -> expresion DIV expresion .) ]
+  ! SMLE            [ reduce using rule 19 (expresion -> expresion DIV expresion .) ]
+  ! GRTE            [ reduce using rule 19 (expresion -> expresion DIV expresion .) ]
+  ! EQL             [ reduce using rule 19 (expresion -> expresion DIV expresion .) ]
+  ! DIF             [ reduce using rule 19 (expresion -> expresion DIV expresion .) ]
+  ! AND             [ reduce using rule 19 (expresion -> expresion DIV expresion .) ]
+  ! OR              [ reduce using rule 19 (expresion -> expresion DIV expresion .) ]
+  ! NOT             [ reduce using rule 19 (expresion -> expresion DIV expresion .) ]
+
+
+state 54
+
+    (20) expresion -> expresion SML expresion .
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for SUBST resolved as shift
+  ! shift/reduce conflict for MULT resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for SML resolved as shift
+  ! shift/reduce conflict for GRT resolved as shift
+  ! shift/reduce conflict for SMLE resolved as shift
+  ! shift/reduce conflict for GRTE resolved as shift
+  ! shift/reduce conflict for EQL resolved as shift
+  ! shift/reduce conflict for DIF resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+    CPRT            reduce using rule 20 (expresion -> expresion SML expresion .)
+    ENDST           reduce using rule 20 (expresion -> expresion SML expresion .)
+    CKEY            reduce using rule 20 (expresion -> expresion SML expresion .)
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+  ! ADD             [ reduce using rule 20 (expresion -> expresion SML expresion .) ]
+  ! SUBST           [ reduce using rule 20 (expresion -> expresion SML expresion .) ]
+  ! MULT            [ reduce using rule 20 (expresion -> expresion SML expresion .) ]
+  ! DIV             [ reduce using rule 20 (expresion -> expresion SML expresion .) ]
+  ! SML             [ reduce using rule 20 (expresion -> expresion SML expresion .) ]
+  ! GRT             [ reduce using rule 20 (expresion -> expresion SML expresion .) ]
+  ! SMLE            [ reduce using rule 20 (expresion -> expresion SML expresion .) ]
+  ! GRTE            [ reduce using rule 20 (expresion -> expresion SML expresion .) ]
+  ! EQL             [ reduce using rule 20 (expresion -> expresion SML expresion .) ]
+  ! DIF             [ reduce using rule 20 (expresion -> expresion SML expresion .) ]
+  ! AND             [ reduce using rule 20 (expresion -> expresion SML expresion .) ]
+  ! OR              [ reduce using rule 20 (expresion -> expresion SML expresion .) ]
+  ! NOT             [ reduce using rule 20 (expresion -> expresion SML expresion .) ]
+
+
+state 55
+
+    (21) expresion -> expresion GRT expresion .
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for SUBST resolved as shift
+  ! shift/reduce conflict for MULT resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for SML resolved as shift
+  ! shift/reduce conflict for GRT resolved as shift
+  ! shift/reduce conflict for SMLE resolved as shift
+  ! shift/reduce conflict for GRTE resolved as shift
+  ! shift/reduce conflict for EQL resolved as shift
+  ! shift/reduce conflict for DIF resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+    CPRT            reduce using rule 21 (expresion -> expresion GRT expresion .)
+    ENDST           reduce using rule 21 (expresion -> expresion GRT expresion .)
+    CKEY            reduce using rule 21 (expresion -> expresion GRT expresion .)
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+  ! ADD             [ reduce using rule 21 (expresion -> expresion GRT expresion .) ]
+  ! SUBST           [ reduce using rule 21 (expresion -> expresion GRT expresion .) ]
+  ! MULT            [ reduce using rule 21 (expresion -> expresion GRT expresion .) ]
+  ! DIV             [ reduce using rule 21 (expresion -> expresion GRT expresion .) ]
+  ! SML             [ reduce using rule 21 (expresion -> expresion GRT expresion .) ]
+  ! GRT             [ reduce using rule 21 (expresion -> expresion GRT expresion .) ]
+  ! SMLE            [ reduce using rule 21 (expresion -> expresion GRT expresion .) ]
+  ! GRTE            [ reduce using rule 21 (expresion -> expresion GRT expresion .) ]
+  ! EQL             [ reduce using rule 21 (expresion -> expresion GRT expresion .) ]
+  ! DIF             [ reduce using rule 21 (expresion -> expresion GRT expresion .) ]
+  ! AND             [ reduce using rule 21 (expresion -> expresion GRT expresion .) ]
+  ! OR              [ reduce using rule 21 (expresion -> expresion GRT expresion .) ]
+  ! NOT             [ reduce using rule 21 (expresion -> expresion GRT expresion .) ]
+
+
+state 56
+
+    (22) expresion -> expresion SMLE expresion .
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for SUBST resolved as shift
+  ! shift/reduce conflict for MULT resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for SML resolved as shift
+  ! shift/reduce conflict for GRT resolved as shift
+  ! shift/reduce conflict for SMLE resolved as shift
+  ! shift/reduce conflict for GRTE resolved as shift
+  ! shift/reduce conflict for EQL resolved as shift
+  ! shift/reduce conflict for DIF resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+    CPRT            reduce using rule 22 (expresion -> expresion SMLE expresion .)
+    ENDST           reduce using rule 22 (expresion -> expresion SMLE expresion .)
+    CKEY            reduce using rule 22 (expresion -> expresion SMLE expresion .)
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+  ! ADD             [ reduce using rule 22 (expresion -> expresion SMLE expresion .) ]
+  ! SUBST           [ reduce using rule 22 (expresion -> expresion SMLE expresion .) ]
+  ! MULT            [ reduce using rule 22 (expresion -> expresion SMLE expresion .) ]
+  ! DIV             [ reduce using rule 22 (expresion -> expresion SMLE expresion .) ]
+  ! SML             [ reduce using rule 22 (expresion -> expresion SMLE expresion .) ]
+  ! GRT             [ reduce using rule 22 (expresion -> expresion SMLE expresion .) ]
+  ! SMLE            [ reduce using rule 22 (expresion -> expresion SMLE expresion .) ]
+  ! GRTE            [ reduce using rule 22 (expresion -> expresion SMLE expresion .) ]
+  ! EQL             [ reduce using rule 22 (expresion -> expresion SMLE expresion .) ]
+  ! DIF             [ reduce using rule 22 (expresion -> expresion SMLE expresion .) ]
+  ! AND             [ reduce using rule 22 (expresion -> expresion SMLE expresion .) ]
+  ! OR              [ reduce using rule 22 (expresion -> expresion SMLE expresion .) ]
+  ! NOT             [ reduce using rule 22 (expresion -> expresion SMLE expresion .) ]
+
+
+state 57
+
+    (23) expresion -> expresion GRTE expresion .
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for SUBST resolved as shift
+  ! shift/reduce conflict for MULT resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for SML resolved as shift
+  ! shift/reduce conflict for GRT resolved as shift
+  ! shift/reduce conflict for SMLE resolved as shift
+  ! shift/reduce conflict for GRTE resolved as shift
+  ! shift/reduce conflict for EQL resolved as shift
+  ! shift/reduce conflict for DIF resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+    CPRT            reduce using rule 23 (expresion -> expresion GRTE expresion .)
+    ENDST           reduce using rule 23 (expresion -> expresion GRTE expresion .)
+    CKEY            reduce using rule 23 (expresion -> expresion GRTE expresion .)
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+  ! ADD             [ reduce using rule 23 (expresion -> expresion GRTE expresion .) ]
+  ! SUBST           [ reduce using rule 23 (expresion -> expresion GRTE expresion .) ]
+  ! MULT            [ reduce using rule 23 (expresion -> expresion GRTE expresion .) ]
+  ! DIV             [ reduce using rule 23 (expresion -> expresion GRTE expresion .) ]
+  ! SML             [ reduce using rule 23 (expresion -> expresion GRTE expresion .) ]
+  ! GRT             [ reduce using rule 23 (expresion -> expresion GRTE expresion .) ]
+  ! SMLE            [ reduce using rule 23 (expresion -> expresion GRTE expresion .) ]
+  ! GRTE            [ reduce using rule 23 (expresion -> expresion GRTE expresion .) ]
+  ! EQL             [ reduce using rule 23 (expresion -> expresion GRTE expresion .) ]
+  ! DIF             [ reduce using rule 23 (expresion -> expresion GRTE expresion .) ]
+  ! AND             [ reduce using rule 23 (expresion -> expresion GRTE expresion .) ]
+  ! OR              [ reduce using rule 23 (expresion -> expresion GRTE expresion .) ]
+  ! NOT             [ reduce using rule 23 (expresion -> expresion GRTE expresion .) ]
+
+
+state 58
+
+    (24) expresion -> expresion EQL expresion .
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for SUBST resolved as shift
+  ! shift/reduce conflict for MULT resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for SML resolved as shift
+  ! shift/reduce conflict for GRT resolved as shift
+  ! shift/reduce conflict for SMLE resolved as shift
+  ! shift/reduce conflict for GRTE resolved as shift
+  ! shift/reduce conflict for EQL resolved as shift
+  ! shift/reduce conflict for DIF resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+    CPRT            reduce using rule 24 (expresion -> expresion EQL expresion .)
+    ENDST           reduce using rule 24 (expresion -> expresion EQL expresion .)
+    CKEY            reduce using rule 24 (expresion -> expresion EQL expresion .)
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+  ! ADD             [ reduce using rule 24 (expresion -> expresion EQL expresion .) ]
+  ! SUBST           [ reduce using rule 24 (expresion -> expresion EQL expresion .) ]
+  ! MULT            [ reduce using rule 24 (expresion -> expresion EQL expresion .) ]
+  ! DIV             [ reduce using rule 24 (expresion -> expresion EQL expresion .) ]
+  ! SML             [ reduce using rule 24 (expresion -> expresion EQL expresion .) ]
+  ! GRT             [ reduce using rule 24 (expresion -> expresion EQL expresion .) ]
+  ! SMLE            [ reduce using rule 24 (expresion -> expresion EQL expresion .) ]
+  ! GRTE            [ reduce using rule 24 (expresion -> expresion EQL expresion .) ]
+  ! EQL             [ reduce using rule 24 (expresion -> expresion EQL expresion .) ]
+  ! DIF             [ reduce using rule 24 (expresion -> expresion EQL expresion .) ]
+  ! AND             [ reduce using rule 24 (expresion -> expresion EQL expresion .) ]
+  ! OR              [ reduce using rule 24 (expresion -> expresion EQL expresion .) ]
+  ! NOT             [ reduce using rule 24 (expresion -> expresion EQL expresion .) ]
+
+
+state 59
+
+    (25) expresion -> expresion DIF expresion .
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for SUBST resolved as shift
+  ! shift/reduce conflict for MULT resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for SML resolved as shift
+  ! shift/reduce conflict for GRT resolved as shift
+  ! shift/reduce conflict for SMLE resolved as shift
+  ! shift/reduce conflict for GRTE resolved as shift
+  ! shift/reduce conflict for EQL resolved as shift
+  ! shift/reduce conflict for DIF resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+    CPRT            reduce using rule 25 (expresion -> expresion DIF expresion .)
+    ENDST           reduce using rule 25 (expresion -> expresion DIF expresion .)
+    CKEY            reduce using rule 25 (expresion -> expresion DIF expresion .)
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+  ! ADD             [ reduce using rule 25 (expresion -> expresion DIF expresion .) ]
+  ! SUBST           [ reduce using rule 25 (expresion -> expresion DIF expresion .) ]
+  ! MULT            [ reduce using rule 25 (expresion -> expresion DIF expresion .) ]
+  ! DIV             [ reduce using rule 25 (expresion -> expresion DIF expresion .) ]
+  ! SML             [ reduce using rule 25 (expresion -> expresion DIF expresion .) ]
+  ! GRT             [ reduce using rule 25 (expresion -> expresion DIF expresion .) ]
+  ! SMLE            [ reduce using rule 25 (expresion -> expresion DIF expresion .) ]
+  ! GRTE            [ reduce using rule 25 (expresion -> expresion DIF expresion .) ]
+  ! EQL             [ reduce using rule 25 (expresion -> expresion DIF expresion .) ]
+  ! DIF             [ reduce using rule 25 (expresion -> expresion DIF expresion .) ]
+  ! AND             [ reduce using rule 25 (expresion -> expresion DIF expresion .) ]
+  ! OR              [ reduce using rule 25 (expresion -> expresion DIF expresion .) ]
+  ! NOT             [ reduce using rule 25 (expresion -> expresion DIF expresion .) ]
+
+
+state 60
+
+    (38) expresion -> expresion AND expresion .
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for SUBST resolved as shift
+  ! shift/reduce conflict for MULT resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for SML resolved as shift
+  ! shift/reduce conflict for GRT resolved as shift
+  ! shift/reduce conflict for SMLE resolved as shift
+  ! shift/reduce conflict for GRTE resolved as shift
+  ! shift/reduce conflict for EQL resolved as shift
+  ! shift/reduce conflict for DIF resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+    CPRT            reduce using rule 38 (expresion -> expresion AND expresion .)
+    ENDST           reduce using rule 38 (expresion -> expresion AND expresion .)
+    CKEY            reduce using rule 38 (expresion -> expresion AND expresion .)
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+  ! ADD             [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! SUBST           [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! MULT            [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! DIV             [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! SML             [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! GRT             [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! SMLE            [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! GRTE            [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! EQL             [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! DIF             [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! AND             [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! OR              [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! NOT             [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+
+
+state 61
+
+    (39) expresion -> expresion OR expresion .
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for SUBST resolved as shift
+  ! shift/reduce conflict for MULT resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for SML resolved as shift
+  ! shift/reduce conflict for GRT resolved as shift
+  ! shift/reduce conflict for SMLE resolved as shift
+  ! shift/reduce conflict for GRTE resolved as shift
+  ! shift/reduce conflict for EQL resolved as shift
+  ! shift/reduce conflict for DIF resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+    CPRT            reduce using rule 39 (expresion -> expresion OR expresion .)
+    ENDST           reduce using rule 39 (expresion -> expresion OR expresion .)
+    CKEY            reduce using rule 39 (expresion -> expresion OR expresion .)
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+  ! ADD             [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! SUBST           [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! MULT            [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! DIV             [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! SML             [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! GRT             [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! SMLE            [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! GRTE            [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! EQL             [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! DIF             [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! AND             [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! OR              [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! NOT             [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+
+
+state 62
+
+    (40) expresion -> expresion NOT expresion .
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for SUBST resolved as shift
+  ! shift/reduce conflict for MULT resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for SML resolved as shift
+  ! shift/reduce conflict for GRT resolved as shift
+  ! shift/reduce conflict for SMLE resolved as shift
+  ! shift/reduce conflict for GRTE resolved as shift
+  ! shift/reduce conflict for EQL resolved as shift
+  ! shift/reduce conflict for DIF resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+    CPRT            reduce using rule 40 (expresion -> expresion NOT expresion .)
+    ENDST           reduce using rule 40 (expresion -> expresion NOT expresion .)
+    CKEY            reduce using rule 40 (expresion -> expresion NOT expresion .)
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+  ! ADD             [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! SUBST           [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! MULT            [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! DIV             [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! SML             [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! GRT             [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! SMLE            [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! GRTE            [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! EQL             [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! DIF             [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! AND             [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! OR              [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! NOT             [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+
+
+state 63
+
+    (26) expresion -> IDF SML IDF .
+
+    CPRT            reduce using rule 26 (expresion -> IDF SML IDF .)
+    ADD             reduce using rule 26 (expresion -> IDF SML IDF .)
+    SUBST           reduce using rule 26 (expresion -> IDF SML IDF .)
+    MULT            reduce using rule 26 (expresion -> IDF SML IDF .)
+    DIV             reduce using rule 26 (expresion -> IDF SML IDF .)
+    SML             reduce using rule 26 (expresion -> IDF SML IDF .)
+    GRT             reduce using rule 26 (expresion -> IDF SML IDF .)
+    SMLE            reduce using rule 26 (expresion -> IDF SML IDF .)
+    GRTE            reduce using rule 26 (expresion -> IDF SML IDF .)
+    EQL             reduce using rule 26 (expresion -> IDF SML IDF .)
+    DIF             reduce using rule 26 (expresion -> IDF SML IDF .)
+    AND             reduce using rule 26 (expresion -> IDF SML IDF .)
+    OR              reduce using rule 26 (expresion -> IDF SML IDF .)
+    NOT             reduce using rule 26 (expresion -> IDF SML IDF .)
+    ENDST           reduce using rule 26 (expresion -> IDF SML IDF .)
+    CKEY            reduce using rule 26 (expresion -> IDF SML IDF .)
+
+
+state 64
+
+    (27) expresion -> IDF GRT IDF .
+
+    CPRT            reduce using rule 27 (expresion -> IDF GRT IDF .)
+    ADD             reduce using rule 27 (expresion -> IDF GRT IDF .)
+    SUBST           reduce using rule 27 (expresion -> IDF GRT IDF .)
+    MULT            reduce using rule 27 (expresion -> IDF GRT IDF .)
+    DIV             reduce using rule 27 (expresion -> IDF GRT IDF .)
+    SML             reduce using rule 27 (expresion -> IDF GRT IDF .)
+    GRT             reduce using rule 27 (expresion -> IDF GRT IDF .)
+    SMLE            reduce using rule 27 (expresion -> IDF GRT IDF .)
+    GRTE            reduce using rule 27 (expresion -> IDF GRT IDF .)
+    EQL             reduce using rule 27 (expresion -> IDF GRT IDF .)
+    DIF             reduce using rule 27 (expresion -> IDF GRT IDF .)
+    AND             reduce using rule 27 (expresion -> IDF GRT IDF .)
+    OR              reduce using rule 27 (expresion -> IDF GRT IDF .)
+    NOT             reduce using rule 27 (expresion -> IDF GRT IDF .)
+    ENDST           reduce using rule 27 (expresion -> IDF GRT IDF .)
+    CKEY            reduce using rule 27 (expresion -> IDF GRT IDF .)
+
+
+state 65
+
+    (28) expresion -> IDF SMLE IDF .
+
+    CPRT            reduce using rule 28 (expresion -> IDF SMLE IDF .)
+    ADD             reduce using rule 28 (expresion -> IDF SMLE IDF .)
+    SUBST           reduce using rule 28 (expresion -> IDF SMLE IDF .)
+    MULT            reduce using rule 28 (expresion -> IDF SMLE IDF .)
+    DIV             reduce using rule 28 (expresion -> IDF SMLE IDF .)
+    SML             reduce using rule 28 (expresion -> IDF SMLE IDF .)
+    GRT             reduce using rule 28 (expresion -> IDF SMLE IDF .)
+    SMLE            reduce using rule 28 (expresion -> IDF SMLE IDF .)
+    GRTE            reduce using rule 28 (expresion -> IDF SMLE IDF .)
+    EQL             reduce using rule 28 (expresion -> IDF SMLE IDF .)
+    DIF             reduce using rule 28 (expresion -> IDF SMLE IDF .)
+    AND             reduce using rule 28 (expresion -> IDF SMLE IDF .)
+    OR              reduce using rule 28 (expresion -> IDF SMLE IDF .)
+    NOT             reduce using rule 28 (expresion -> IDF SMLE IDF .)
+    ENDST           reduce using rule 28 (expresion -> IDF SMLE IDF .)
+    CKEY            reduce using rule 28 (expresion -> IDF SMLE IDF .)
+
+
+state 66
+
+    (29) expresion -> IDF GRTE IDF .
+
+    CPRT            reduce using rule 29 (expresion -> IDF GRTE IDF .)
+    ADD             reduce using rule 29 (expresion -> IDF GRTE IDF .)
+    SUBST           reduce using rule 29 (expresion -> IDF GRTE IDF .)
+    MULT            reduce using rule 29 (expresion -> IDF GRTE IDF .)
+    DIV             reduce using rule 29 (expresion -> IDF GRTE IDF .)
+    SML             reduce using rule 29 (expresion -> IDF GRTE IDF .)
+    GRT             reduce using rule 29 (expresion -> IDF GRTE IDF .)
+    SMLE            reduce using rule 29 (expresion -> IDF GRTE IDF .)
+    GRTE            reduce using rule 29 (expresion -> IDF GRTE IDF .)
+    EQL             reduce using rule 29 (expresion -> IDF GRTE IDF .)
+    DIF             reduce using rule 29 (expresion -> IDF GRTE IDF .)
+    AND             reduce using rule 29 (expresion -> IDF GRTE IDF .)
+    OR              reduce using rule 29 (expresion -> IDF GRTE IDF .)
+    NOT             reduce using rule 29 (expresion -> IDF GRTE IDF .)
+    ENDST           reduce using rule 29 (expresion -> IDF GRTE IDF .)
+    CKEY            reduce using rule 29 (expresion -> IDF GRTE IDF .)
+
+
+state 67
+
+    (30) expresion -> IDF EQL IDF .
+
+    CPRT            reduce using rule 30 (expresion -> IDF EQL IDF .)
+    ADD             reduce using rule 30 (expresion -> IDF EQL IDF .)
+    SUBST           reduce using rule 30 (expresion -> IDF EQL IDF .)
+    MULT            reduce using rule 30 (expresion -> IDF EQL IDF .)
+    DIV             reduce using rule 30 (expresion -> IDF EQL IDF .)
+    SML             reduce using rule 30 (expresion -> IDF EQL IDF .)
+    GRT             reduce using rule 30 (expresion -> IDF EQL IDF .)
+    SMLE            reduce using rule 30 (expresion -> IDF EQL IDF .)
+    GRTE            reduce using rule 30 (expresion -> IDF EQL IDF .)
+    EQL             reduce using rule 30 (expresion -> IDF EQL IDF .)
+    DIF             reduce using rule 30 (expresion -> IDF EQL IDF .)
+    AND             reduce using rule 30 (expresion -> IDF EQL IDF .)
+    OR              reduce using rule 30 (expresion -> IDF EQL IDF .)
+    NOT             reduce using rule 30 (expresion -> IDF EQL IDF .)
+    ENDST           reduce using rule 30 (expresion -> IDF EQL IDF .)
+    CKEY            reduce using rule 30 (expresion -> IDF EQL IDF .)
+
+
+state 68
+
+    (31) expresion -> IDF DIF IDF .
+
+    CPRT            reduce using rule 31 (expresion -> IDF DIF IDF .)
+    ADD             reduce using rule 31 (expresion -> IDF DIF IDF .)
+    SUBST           reduce using rule 31 (expresion -> IDF DIF IDF .)
+    MULT            reduce using rule 31 (expresion -> IDF DIF IDF .)
+    DIV             reduce using rule 31 (expresion -> IDF DIF IDF .)
+    SML             reduce using rule 31 (expresion -> IDF DIF IDF .)
+    GRT             reduce using rule 31 (expresion -> IDF DIF IDF .)
+    SMLE            reduce using rule 31 (expresion -> IDF DIF IDF .)
+    GRTE            reduce using rule 31 (expresion -> IDF DIF IDF .)
+    EQL             reduce using rule 31 (expresion -> IDF DIF IDF .)
+    DIF             reduce using rule 31 (expresion -> IDF DIF IDF .)
+    AND             reduce using rule 31 (expresion -> IDF DIF IDF .)
+    OR              reduce using rule 31 (expresion -> IDF DIF IDF .)
+    NOT             reduce using rule 31 (expresion -> IDF DIF IDF .)
+    ENDST           reduce using rule 31 (expresion -> IDF DIF IDF .)
+    CKEY            reduce using rule 31 (expresion -> IDF DIF IDF .)
+
+
+state 69
+
+    (8) asignacion -> asignacion ENDST IDF EQL expresion . ENDST
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+    ENDST           shift and go to state 84
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+
+state 70
+
+    (9) While -> WHL OPRT expresion CPRT OKEY . expresion CKEY
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 85
+
+state 71
+
+    (32) expresion -> OPRT expresion CPRT SML . OPRT expresion CPRT
+
+    OPRT            shift and go to state 86
+
+
+state 72
+
+    (33) expresion -> OPRT expresion CPRT GRT . OPRT expresion CPRT
+
+    OPRT            shift and go to state 87
+
+
+state 73
+
+    (34) expresion -> OPRT expresion CPRT SMLE . OPRT expresion CPRT
+
+    OPRT            shift and go to state 88
+
+
+state 74
+
+    (35) expresion -> OPRT expresion CPRT GRTE . OPRT expresion CPRT
+
+    OPRT            shift and go to state 89
+
+
+state 75
+
+    (36) expresion -> OPRT expresion CPRT EQL . OPRT expresion CPRT
+
+    OPRT            shift and go to state 90
+
+
+state 76
+
+    (37) expresion -> OPRT expresion CPRT DIF . OPRT expresion CPRT
+
+    OPRT            shift and go to state 91
+
+
+state 77
+
+    (41) expresion -> OPRT expresion AND expresion . CPRT
+    (38) expresion -> expresion AND expresion .
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+  ! shift/reduce conflict for CPRT resolved as shift
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for SUBST resolved as shift
+  ! shift/reduce conflict for MULT resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for SML resolved as shift
+  ! shift/reduce conflict for GRT resolved as shift
+  ! shift/reduce conflict for SMLE resolved as shift
+  ! shift/reduce conflict for GRTE resolved as shift
+  ! shift/reduce conflict for EQL resolved as shift
+  ! shift/reduce conflict for DIF resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+    CPRT            shift and go to state 92
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+  ! CPRT            [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! AND             [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! OR              [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! NOT             [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! ADD             [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! SUBST           [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! MULT            [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! DIV             [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! SML             [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! GRT             [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! SMLE            [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! GRTE            [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! EQL             [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+  ! DIF             [ reduce using rule 38 (expresion -> expresion AND expresion .) ]
+
+
+state 78
+
+    (42) expresion -> OPRT expresion OR expresion . CPRT
+    (39) expresion -> expresion OR expresion .
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+  ! shift/reduce conflict for CPRT resolved as shift
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for SUBST resolved as shift
+  ! shift/reduce conflict for MULT resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for SML resolved as shift
+  ! shift/reduce conflict for GRT resolved as shift
+  ! shift/reduce conflict for SMLE resolved as shift
+  ! shift/reduce conflict for GRTE resolved as shift
+  ! shift/reduce conflict for EQL resolved as shift
+  ! shift/reduce conflict for DIF resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+    CPRT            shift and go to state 93
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+  ! CPRT            [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! AND             [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! OR              [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! NOT             [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! ADD             [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! SUBST           [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! MULT            [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! DIV             [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! SML             [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! GRT             [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! SMLE            [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! GRTE            [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! EQL             [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+  ! DIF             [ reduce using rule 39 (expresion -> expresion OR expresion .) ]
+
+
+state 79
+
+    (43) expresion -> OPRT expresion NOT expresion . CPRT
+    (40) expresion -> expresion NOT expresion .
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+  ! shift/reduce conflict for CPRT resolved as shift
+  ! shift/reduce conflict for ADD resolved as shift
+  ! shift/reduce conflict for SUBST resolved as shift
+  ! shift/reduce conflict for MULT resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for SML resolved as shift
+  ! shift/reduce conflict for GRT resolved as shift
+  ! shift/reduce conflict for SMLE resolved as shift
+  ! shift/reduce conflict for GRTE resolved as shift
+  ! shift/reduce conflict for EQL resolved as shift
+  ! shift/reduce conflict for DIF resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for NOT resolved as shift
+    CPRT            shift and go to state 94
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+  ! CPRT            [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! AND             [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! OR              [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! NOT             [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! ADD             [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! SUBST           [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! MULT            [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! DIV             [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! SML             [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! GRT             [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! SMLE            [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! GRTE            [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! EQL             [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+  ! DIF             [ reduce using rule 40 (expresion -> expresion NOT expresion .) ]
+
+
+state 80
+
+    (12) condicional -> OPRT expresion CPRT OKEY expresion . CKEY
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+    CKEY            shift and go to state 95
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+
+state 81
+
+    (13) condicional -> OPRT expresion CPRT OKEY declaracion . CKEY
+
+    CKEY            shift and go to state 96
+
+
+state 82
+
+    (14) condicional -> OPRT expresion CPRT OKEY empty . CKEY
+    (5) declaracion -> empty .
+
+  ! shift/reduce conflict for CKEY resolved as shift
+    CKEY            shift and go to state 97
+
+  ! CKEY            [ reduce using rule 5 (declaracion -> empty .) ]
+
+
+state 83
+
+    (26) expresion -> IDF . SML IDF
+    (27) expresion -> IDF . GRT IDF
+    (28) expresion -> IDF . SMLE IDF
+    (29) expresion -> IDF . GRTE IDF
+    (30) expresion -> IDF . EQL IDF
+    (31) expresion -> IDF . DIF IDF
+    (7) asignacion -> IDF . EQL expresion
+
+    SML             shift and go to state 36
+    GRT             shift and go to state 37
+    SMLE            shift and go to state 38
+    GRTE            shift and go to state 39
+    EQL             shift and go to state 98
+    DIF             shift and go to state 41
+
+
+state 84
+
+    (8) asignacion -> asignacion ENDST IDF EQL expresion ENDST .
+
+    ENDST           reduce using rule 8 (asignacion -> asignacion ENDST IDF EQL expresion ENDST .)
+
+
+state 85
+
+    (9) While -> WHL OPRT expresion CPRT OKEY expresion . CKEY
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+    CKEY            shift and go to state 99
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+
+state 86
+
+    (32) expresion -> OPRT expresion CPRT SML OPRT . expresion CPRT
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 100
+
+state 87
+
+    (33) expresion -> OPRT expresion CPRT GRT OPRT . expresion CPRT
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 101
+
+state 88
+
+    (34) expresion -> OPRT expresion CPRT SMLE OPRT . expresion CPRT
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 102
+
+state 89
+
+    (35) expresion -> OPRT expresion CPRT GRTE OPRT . expresion CPRT
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 103
+
+state 90
+
+    (36) expresion -> OPRT expresion CPRT EQL OPRT . expresion CPRT
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 104
+
+state 91
+
+    (37) expresion -> OPRT expresion CPRT DIF OPRT . expresion CPRT
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    IDF             shift and go to state 17
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 105
+
+state 92
+
+    (41) expresion -> OPRT expresion AND expresion CPRT .
+
+    CPRT            reduce using rule 41 (expresion -> OPRT expresion AND expresion CPRT .)
+    ADD             reduce using rule 41 (expresion -> OPRT expresion AND expresion CPRT .)
+    SUBST           reduce using rule 41 (expresion -> OPRT expresion AND expresion CPRT .)
+    MULT            reduce using rule 41 (expresion -> OPRT expresion AND expresion CPRT .)
+    DIV             reduce using rule 41 (expresion -> OPRT expresion AND expresion CPRT .)
+    SML             reduce using rule 41 (expresion -> OPRT expresion AND expresion CPRT .)
+    GRT             reduce using rule 41 (expresion -> OPRT expresion AND expresion CPRT .)
+    SMLE            reduce using rule 41 (expresion -> OPRT expresion AND expresion CPRT .)
+    GRTE            reduce using rule 41 (expresion -> OPRT expresion AND expresion CPRT .)
+    EQL             reduce using rule 41 (expresion -> OPRT expresion AND expresion CPRT .)
+    DIF             reduce using rule 41 (expresion -> OPRT expresion AND expresion CPRT .)
+    AND             reduce using rule 41 (expresion -> OPRT expresion AND expresion CPRT .)
+    OR              reduce using rule 41 (expresion -> OPRT expresion AND expresion CPRT .)
+    NOT             reduce using rule 41 (expresion -> OPRT expresion AND expresion CPRT .)
+    ENDST           reduce using rule 41 (expresion -> OPRT expresion AND expresion CPRT .)
+    CKEY            reduce using rule 41 (expresion -> OPRT expresion AND expresion CPRT .)
+
+
+state 93
+
+    (42) expresion -> OPRT expresion OR expresion CPRT .
+
+    CPRT            reduce using rule 42 (expresion -> OPRT expresion OR expresion CPRT .)
+    ADD             reduce using rule 42 (expresion -> OPRT expresion OR expresion CPRT .)
+    SUBST           reduce using rule 42 (expresion -> OPRT expresion OR expresion CPRT .)
+    MULT            reduce using rule 42 (expresion -> OPRT expresion OR expresion CPRT .)
+    DIV             reduce using rule 42 (expresion -> OPRT expresion OR expresion CPRT .)
+    SML             reduce using rule 42 (expresion -> OPRT expresion OR expresion CPRT .)
+    GRT             reduce using rule 42 (expresion -> OPRT expresion OR expresion CPRT .)
+    SMLE            reduce using rule 42 (expresion -> OPRT expresion OR expresion CPRT .)
+    GRTE            reduce using rule 42 (expresion -> OPRT expresion OR expresion CPRT .)
+    EQL             reduce using rule 42 (expresion -> OPRT expresion OR expresion CPRT .)
+    DIF             reduce using rule 42 (expresion -> OPRT expresion OR expresion CPRT .)
+    AND             reduce using rule 42 (expresion -> OPRT expresion OR expresion CPRT .)
+    OR              reduce using rule 42 (expresion -> OPRT expresion OR expresion CPRT .)
+    NOT             reduce using rule 42 (expresion -> OPRT expresion OR expresion CPRT .)
+    ENDST           reduce using rule 42 (expresion -> OPRT expresion OR expresion CPRT .)
+    CKEY            reduce using rule 42 (expresion -> OPRT expresion OR expresion CPRT .)
+
+
+state 94
+
+    (43) expresion -> OPRT expresion NOT expresion CPRT .
+
+    CPRT            reduce using rule 43 (expresion -> OPRT expresion NOT expresion CPRT .)
+    ADD             reduce using rule 43 (expresion -> OPRT expresion NOT expresion CPRT .)
+    SUBST           reduce using rule 43 (expresion -> OPRT expresion NOT expresion CPRT .)
+    MULT            reduce using rule 43 (expresion -> OPRT expresion NOT expresion CPRT .)
+    DIV             reduce using rule 43 (expresion -> OPRT expresion NOT expresion CPRT .)
+    SML             reduce using rule 43 (expresion -> OPRT expresion NOT expresion CPRT .)
+    GRT             reduce using rule 43 (expresion -> OPRT expresion NOT expresion CPRT .)
+    SMLE            reduce using rule 43 (expresion -> OPRT expresion NOT expresion CPRT .)
+    GRTE            reduce using rule 43 (expresion -> OPRT expresion NOT expresion CPRT .)
+    EQL             reduce using rule 43 (expresion -> OPRT expresion NOT expresion CPRT .)
+    DIF             reduce using rule 43 (expresion -> OPRT expresion NOT expresion CPRT .)
+    AND             reduce using rule 43 (expresion -> OPRT expresion NOT expresion CPRT .)
+    OR              reduce using rule 43 (expresion -> OPRT expresion NOT expresion CPRT .)
+    NOT             reduce using rule 43 (expresion -> OPRT expresion NOT expresion CPRT .)
+    ENDST           reduce using rule 43 (expresion -> OPRT expresion NOT expresion CPRT .)
+    CKEY            reduce using rule 43 (expresion -> OPRT expresion NOT expresion CPRT .)
+
+
+state 95
+
+    (12) condicional -> OPRT expresion CPRT OKEY expresion CKEY .
+
+    $end            reduce using rule 12 (condicional -> OPRT expresion CPRT OKEY expresion CKEY .)
+
+
+state 96
+
+    (13) condicional -> OPRT expresion CPRT OKEY declaracion CKEY .
+
+    $end            reduce using rule 13 (condicional -> OPRT expresion CPRT OKEY declaracion CKEY .)
+
+
+state 97
+
+    (14) condicional -> OPRT expresion CPRT OKEY empty CKEY .
+
+    $end            reduce using rule 14 (condicional -> OPRT expresion CPRT OKEY empty CKEY .)
+
+
+state 98
+
+    (30) expresion -> IDF EQL . IDF
+    (7) asignacion -> IDF EQL . expresion
+    (10) expresion -> . INT
+    (11) expresion -> . CHR
+    (16) expresion -> . expresion ADD expresion
+    (17) expresion -> . expresion SUBST expresion
+    (18) expresion -> . expresion MULT expresion
+    (19) expresion -> . expresion DIV expresion
+    (20) expresion -> . expresion SML expresion
+    (21) expresion -> . expresion GRT expresion
+    (22) expresion -> . expresion SMLE expresion
+    (23) expresion -> . expresion GRTE expresion
+    (24) expresion -> . expresion EQL expresion
+    (25) expresion -> . expresion DIF expresion
+    (26) expresion -> . IDF SML IDF
+    (27) expresion -> . IDF GRT IDF
+    (28) expresion -> . IDF SMLE IDF
+    (29) expresion -> . IDF GRTE IDF
+    (30) expresion -> . IDF EQL IDF
+    (31) expresion -> . IDF DIF IDF
+    (32) expresion -> . OPRT expresion CPRT SML OPRT expresion CPRT
+    (33) expresion -> . OPRT expresion CPRT GRT OPRT expresion CPRT
+    (34) expresion -> . OPRT expresion CPRT SMLE OPRT expresion CPRT
+    (35) expresion -> . OPRT expresion CPRT GRTE OPRT expresion CPRT
+    (36) expresion -> . OPRT expresion CPRT EQL OPRT expresion CPRT
+    (37) expresion -> . OPRT expresion CPRT DIF OPRT expresion CPRT
+    (38) expresion -> . expresion AND expresion
+    (39) expresion -> . expresion OR expresion
+    (40) expresion -> . expresion NOT expresion
+    (41) expresion -> . OPRT expresion AND expresion CPRT
+    (42) expresion -> . OPRT expresion OR expresion CPRT
+    (43) expresion -> . OPRT expresion NOT expresion CPRT
+
+    IDF             shift and go to state 106
+    INT             shift and go to state 15
+    CHR             shift and go to state 16
+    OPRT            shift and go to state 13
+
+    expresion                      shift and go to state 42
+
+state 99
+
+    (9) While -> WHL OPRT expresion CPRT OKEY expresion CKEY .
+
+    $end            reduce using rule 9 (While -> WHL OPRT expresion CPRT OKEY expresion CKEY .)
+
+
+state 100
+
+    (32) expresion -> OPRT expresion CPRT SML OPRT expresion . CPRT
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+    CPRT            shift and go to state 107
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+
+state 101
+
+    (33) expresion -> OPRT expresion CPRT GRT OPRT expresion . CPRT
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+    CPRT            shift and go to state 108
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+
+state 102
+
+    (34) expresion -> OPRT expresion CPRT SMLE OPRT expresion . CPRT
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+    CPRT            shift and go to state 109
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+
+state 103
+
+    (35) expresion -> OPRT expresion CPRT GRTE OPRT expresion . CPRT
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+    CPRT            shift and go to state 110
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+
+state 104
+
+    (36) expresion -> OPRT expresion CPRT EQL OPRT expresion . CPRT
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+    CPRT            shift and go to state 111
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+
+state 105
+
+    (37) expresion -> OPRT expresion CPRT DIF OPRT expresion . CPRT
+    (16) expresion -> expresion . ADD expresion
+    (17) expresion -> expresion . SUBST expresion
+    (18) expresion -> expresion . MULT expresion
+    (19) expresion -> expresion . DIV expresion
+    (20) expresion -> expresion . SML expresion
+    (21) expresion -> expresion . GRT expresion
+    (22) expresion -> expresion . SMLE expresion
+    (23) expresion -> expresion . GRTE expresion
+    (24) expresion -> expresion . EQL expresion
+    (25) expresion -> expresion . DIF expresion
+    (38) expresion -> expresion . AND expresion
+    (39) expresion -> expresion . OR expresion
+    (40) expresion -> expresion . NOT expresion
+
+    CPRT            shift and go to state 112
+    ADD             shift and go to state 23
+    SUBST           shift and go to state 24
+    MULT            shift and go to state 25
+    DIV             shift and go to state 26
+    SML             shift and go to state 27
+    GRT             shift and go to state 28
+    SMLE            shift and go to state 29
+    GRTE            shift and go to state 30
+    EQL             shift and go to state 31
+    DIF             shift and go to state 32
+    AND             shift and go to state 33
+    OR              shift and go to state 34
+    NOT             shift and go to state 35
+
+
+state 106
+
+    (30) expresion -> IDF EQL IDF .
+    (26) expresion -> IDF . SML IDF
+    (27) expresion -> IDF . GRT IDF
+    (28) expresion -> IDF . SMLE IDF
+    (29) expresion -> IDF . GRTE IDF
+    (30) expresion -> IDF . EQL IDF
+    (31) expresion -> IDF . DIF IDF
+
+  ! shift/reduce conflict for SML resolved as shift
+  ! shift/reduce conflict for GRT resolved as shift
+  ! shift/reduce conflict for SMLE resolved as shift
+  ! shift/reduce conflict for GRTE resolved as shift
+  ! shift/reduce conflict for EQL resolved as shift
+  ! shift/reduce conflict for DIF resolved as shift
+    CKEY            reduce using rule 30 (expresion -> IDF EQL IDF .)
+    ADD             reduce using rule 30 (expresion -> IDF EQL IDF .)
+    SUBST           reduce using rule 30 (expresion -> IDF EQL IDF .)
+    MULT            reduce using rule 30 (expresion -> IDF EQL IDF .)
+    DIV             reduce using rule 30 (expresion -> IDF EQL IDF .)
+    AND             reduce using rule 30 (expresion -> IDF EQL IDF .)
+    OR              reduce using rule 30 (expresion -> IDF EQL IDF .)
+    NOT             reduce using rule 30 (expresion -> IDF EQL IDF .)
+    SML             shift and go to state 36
+    GRT             shift and go to state 37
+    SMLE            shift and go to state 38
+    GRTE            shift and go to state 39
+    EQL             shift and go to state 40
+    DIF             shift and go to state 41
+
+  ! SML             [ reduce using rule 30 (expresion -> IDF EQL IDF .) ]
+  ! GRT             [ reduce using rule 30 (expresion -> IDF EQL IDF .) ]
+  ! SMLE            [ reduce using rule 30 (expresion -> IDF EQL IDF .) ]
+  ! GRTE            [ reduce using rule 30 (expresion -> IDF EQL IDF .) ]
+  ! EQL             [ reduce using rule 30 (expresion -> IDF EQL IDF .) ]
+  ! DIF             [ reduce using rule 30 (expresion -> IDF EQL IDF .) ]
+
+
+state 107
+
+    (32) expresion -> OPRT expresion CPRT SML OPRT expresion CPRT .
+
+    CPRT            reduce using rule 32 (expresion -> OPRT expresion CPRT SML OPRT expresion CPRT .)
+    ADD             reduce using rule 32 (expresion -> OPRT expresion CPRT SML OPRT expresion CPRT .)
+    SUBST           reduce using rule 32 (expresion -> OPRT expresion CPRT SML OPRT expresion CPRT .)
+    MULT            reduce using rule 32 (expresion -> OPRT expresion CPRT SML OPRT expresion CPRT .)
+    DIV             reduce using rule 32 (expresion -> OPRT expresion CPRT SML OPRT expresion CPRT .)
+    SML             reduce using rule 32 (expresion -> OPRT expresion CPRT SML OPRT expresion CPRT .)
+    GRT             reduce using rule 32 (expresion -> OPRT expresion CPRT SML OPRT expresion CPRT .)
+    SMLE            reduce using rule 32 (expresion -> OPRT expresion CPRT SML OPRT expresion CPRT .)
+    GRTE            reduce using rule 32 (expresion -> OPRT expresion CPRT SML OPRT expresion CPRT .)
+    EQL             reduce using rule 32 (expresion -> OPRT expresion CPRT SML OPRT expresion CPRT .)
+    DIF             reduce using rule 32 (expresion -> OPRT expresion CPRT SML OPRT expresion CPRT .)
+    AND             reduce using rule 32 (expresion -> OPRT expresion CPRT SML OPRT expresion CPRT .)
+    OR              reduce using rule 32 (expresion -> OPRT expresion CPRT SML OPRT expresion CPRT .)
+    NOT             reduce using rule 32 (expresion -> OPRT expresion CPRT SML OPRT expresion CPRT .)
+    ENDST           reduce using rule 32 (expresion -> OPRT expresion CPRT SML OPRT expresion CPRT .)
+    CKEY            reduce using rule 32 (expresion -> OPRT expresion CPRT SML OPRT expresion CPRT .)
+
+
+state 108
+
+    (33) expresion -> OPRT expresion CPRT GRT OPRT expresion CPRT .
+
+    CPRT            reduce using rule 33 (expresion -> OPRT expresion CPRT GRT OPRT expresion CPRT .)
+    ADD             reduce using rule 33 (expresion -> OPRT expresion CPRT GRT OPRT expresion CPRT .)
+    SUBST           reduce using rule 33 (expresion -> OPRT expresion CPRT GRT OPRT expresion CPRT .)
+    MULT            reduce using rule 33 (expresion -> OPRT expresion CPRT GRT OPRT expresion CPRT .)
+    DIV             reduce using rule 33 (expresion -> OPRT expresion CPRT GRT OPRT expresion CPRT .)
+    SML             reduce using rule 33 (expresion -> OPRT expresion CPRT GRT OPRT expresion CPRT .)
+    GRT             reduce using rule 33 (expresion -> OPRT expresion CPRT GRT OPRT expresion CPRT .)
+    SMLE            reduce using rule 33 (expresion -> OPRT expresion CPRT GRT OPRT expresion CPRT .)
+    GRTE            reduce using rule 33 (expresion -> OPRT expresion CPRT GRT OPRT expresion CPRT .)
+    EQL             reduce using rule 33 (expresion -> OPRT expresion CPRT GRT OPRT expresion CPRT .)
+    DIF             reduce using rule 33 (expresion -> OPRT expresion CPRT GRT OPRT expresion CPRT .)
+    AND             reduce using rule 33 (expresion -> OPRT expresion CPRT GRT OPRT expresion CPRT .)
+    OR              reduce using rule 33 (expresion -> OPRT expresion CPRT GRT OPRT expresion CPRT .)
+    NOT             reduce using rule 33 (expresion -> OPRT expresion CPRT GRT OPRT expresion CPRT .)
+    ENDST           reduce using rule 33 (expresion -> OPRT expresion CPRT GRT OPRT expresion CPRT .)
+    CKEY            reduce using rule 33 (expresion -> OPRT expresion CPRT GRT OPRT expresion CPRT .)
+
+
+state 109
+
+    (34) expresion -> OPRT expresion CPRT SMLE OPRT expresion CPRT .
+
+    CPRT            reduce using rule 34 (expresion -> OPRT expresion CPRT SMLE OPRT expresion CPRT .)
+    ADD             reduce using rule 34 (expresion -> OPRT expresion CPRT SMLE OPRT expresion CPRT .)
+    SUBST           reduce using rule 34 (expresion -> OPRT expresion CPRT SMLE OPRT expresion CPRT .)
+    MULT            reduce using rule 34 (expresion -> OPRT expresion CPRT SMLE OPRT expresion CPRT .)
+    DIV             reduce using rule 34 (expresion -> OPRT expresion CPRT SMLE OPRT expresion CPRT .)
+    SML             reduce using rule 34 (expresion -> OPRT expresion CPRT SMLE OPRT expresion CPRT .)
+    GRT             reduce using rule 34 (expresion -> OPRT expresion CPRT SMLE OPRT expresion CPRT .)
+    SMLE            reduce using rule 34 (expresion -> OPRT expresion CPRT SMLE OPRT expresion CPRT .)
+    GRTE            reduce using rule 34 (expresion -> OPRT expresion CPRT SMLE OPRT expresion CPRT .)
+    EQL             reduce using rule 34 (expresion -> OPRT expresion CPRT SMLE OPRT expresion CPRT .)
+    DIF             reduce using rule 34 (expresion -> OPRT expresion CPRT SMLE OPRT expresion CPRT .)
+    AND             reduce using rule 34 (expresion -> OPRT expresion CPRT SMLE OPRT expresion CPRT .)
+    OR              reduce using rule 34 (expresion -> OPRT expresion CPRT SMLE OPRT expresion CPRT .)
+    NOT             reduce using rule 34 (expresion -> OPRT expresion CPRT SMLE OPRT expresion CPRT .)
+    ENDST           reduce using rule 34 (expresion -> OPRT expresion CPRT SMLE OPRT expresion CPRT .)
+    CKEY            reduce using rule 34 (expresion -> OPRT expresion CPRT SMLE OPRT expresion CPRT .)
+
+
+state 110
+
+    (35) expresion -> OPRT expresion CPRT GRTE OPRT expresion CPRT .
+
+    CPRT            reduce using rule 35 (expresion -> OPRT expresion CPRT GRTE OPRT expresion CPRT .)
+    ADD             reduce using rule 35 (expresion -> OPRT expresion CPRT GRTE OPRT expresion CPRT .)
+    SUBST           reduce using rule 35 (expresion -> OPRT expresion CPRT GRTE OPRT expresion CPRT .)
+    MULT            reduce using rule 35 (expresion -> OPRT expresion CPRT GRTE OPRT expresion CPRT .)
+    DIV             reduce using rule 35 (expresion -> OPRT expresion CPRT GRTE OPRT expresion CPRT .)
+    SML             reduce using rule 35 (expresion -> OPRT expresion CPRT GRTE OPRT expresion CPRT .)
+    GRT             reduce using rule 35 (expresion -> OPRT expresion CPRT GRTE OPRT expresion CPRT .)
+    SMLE            reduce using rule 35 (expresion -> OPRT expresion CPRT GRTE OPRT expresion CPRT .)
+    GRTE            reduce using rule 35 (expresion -> OPRT expresion CPRT GRTE OPRT expresion CPRT .)
+    EQL             reduce using rule 35 (expresion -> OPRT expresion CPRT GRTE OPRT expresion CPRT .)
+    DIF             reduce using rule 35 (expresion -> OPRT expresion CPRT GRTE OPRT expresion CPRT .)
+    AND             reduce using rule 35 (expresion -> OPRT expresion CPRT GRTE OPRT expresion CPRT .)
+    OR              reduce using rule 35 (expresion -> OPRT expresion CPRT GRTE OPRT expresion CPRT .)
+    NOT             reduce using rule 35 (expresion -> OPRT expresion CPRT GRTE OPRT expresion CPRT .)
+    ENDST           reduce using rule 35 (expresion -> OPRT expresion CPRT GRTE OPRT expresion CPRT .)
+    CKEY            reduce using rule 35 (expresion -> OPRT expresion CPRT GRTE OPRT expresion CPRT .)
+
+
+state 111
+
+    (36) expresion -> OPRT expresion CPRT EQL OPRT expresion CPRT .
+
+    CPRT            reduce using rule 36 (expresion -> OPRT expresion CPRT EQL OPRT expresion CPRT .)
+    ADD             reduce using rule 36 (expresion -> OPRT expresion CPRT EQL OPRT expresion CPRT .)
+    SUBST           reduce using rule 36 (expresion -> OPRT expresion CPRT EQL OPRT expresion CPRT .)
+    MULT            reduce using rule 36 (expresion -> OPRT expresion CPRT EQL OPRT expresion CPRT .)
+    DIV             reduce using rule 36 (expresion -> OPRT expresion CPRT EQL OPRT expresion CPRT .)
+    SML             reduce using rule 36 (expresion -> OPRT expresion CPRT EQL OPRT expresion CPRT .)
+    GRT             reduce using rule 36 (expresion -> OPRT expresion CPRT EQL OPRT expresion CPRT .)
+    SMLE            reduce using rule 36 (expresion -> OPRT expresion CPRT EQL OPRT expresion CPRT .)
+    GRTE            reduce using rule 36 (expresion -> OPRT expresion CPRT EQL OPRT expresion CPRT .)
+    EQL             reduce using rule 36 (expresion -> OPRT expresion CPRT EQL OPRT expresion CPRT .)
+    DIF             reduce using rule 36 (expresion -> OPRT expresion CPRT EQL OPRT expresion CPRT .)
+    AND             reduce using rule 36 (expresion -> OPRT expresion CPRT EQL OPRT expresion CPRT .)
+    OR              reduce using rule 36 (expresion -> OPRT expresion CPRT EQL OPRT expresion CPRT .)
+    NOT             reduce using rule 36 (expresion -> OPRT expresion CPRT EQL OPRT expresion CPRT .)
+    ENDST           reduce using rule 36 (expresion -> OPRT expresion CPRT EQL OPRT expresion CPRT .)
+    CKEY            reduce using rule 36 (expresion -> OPRT expresion CPRT EQL OPRT expresion CPRT .)
+
+
+state 112
+
+    (37) expresion -> OPRT expresion CPRT DIF OPRT expresion CPRT .
+
+    CPRT            reduce using rule 37 (expresion -> OPRT expresion CPRT DIF OPRT expresion CPRT .)
+    ADD             reduce using rule 37 (expresion -> OPRT expresion CPRT DIF OPRT expresion CPRT .)
+    SUBST           reduce using rule 37 (expresion -> OPRT expresion CPRT DIF OPRT expresion CPRT .)
+    MULT            reduce using rule 37 (expresion -> OPRT expresion CPRT DIF OPRT expresion CPRT .)
+    DIV             reduce using rule 37 (expresion -> OPRT expresion CPRT DIF OPRT expresion CPRT .)
+    SML             reduce using rule 37 (expresion -> OPRT expresion CPRT DIF OPRT expresion CPRT .)
+    GRT             reduce using rule 37 (expresion -> OPRT expresion CPRT DIF OPRT expresion CPRT .)
+    SMLE            reduce using rule 37 (expresion -> OPRT expresion CPRT DIF OPRT expresion CPRT .)
+    GRTE            reduce using rule 37 (expresion -> OPRT expresion CPRT DIF OPRT expresion CPRT .)
+    EQL             reduce using rule 37 (expresion -> OPRT expresion CPRT DIF OPRT expresion CPRT .)
+    DIF             reduce using rule 37 (expresion -> OPRT expresion CPRT DIF OPRT expresion CPRT .)
+    AND             reduce using rule 37 (expresion -> OPRT expresion CPRT DIF OPRT expresion CPRT .)
+    OR              reduce using rule 37 (expresion -> OPRT expresion CPRT DIF OPRT expresion CPRT .)
+    NOT             reduce using rule 37 (expresion -> OPRT expresion CPRT DIF OPRT expresion CPRT .)
+    ENDST           reduce using rule 37 (expresion -> OPRT expresion CPRT DIF OPRT expresion CPRT .)
+    CKEY            reduce using rule 37 (expresion -> OPRT expresion CPRT DIF OPRT expresion CPRT .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for ADD in state 50 resolved as shift
+WARNING: shift/reduce conflict for SUBST in state 50 resolved as shift
+WARNING: shift/reduce conflict for MULT in state 50 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 50 resolved as shift
+WARNING: shift/reduce conflict for SML in state 50 resolved as shift
+WARNING: shift/reduce conflict for GRT in state 50 resolved as shift
+WARNING: shift/reduce conflict for SMLE in state 50 resolved as shift
+WARNING: shift/reduce conflict for GRTE in state 50 resolved as shift
+WARNING: shift/reduce conflict for EQL in state 50 resolved as shift
+WARNING: shift/reduce conflict for DIF in state 50 resolved as shift
+WARNING: shift/reduce conflict for AND in state 50 resolved as shift
+WARNING: shift/reduce conflict for OR in state 50 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 50 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 51 resolved as shift
+WARNING: shift/reduce conflict for SUBST in state 51 resolved as shift
+WARNING: shift/reduce conflict for MULT in state 51 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 51 resolved as shift
+WARNING: shift/reduce conflict for SML in state 51 resolved as shift
+WARNING: shift/reduce conflict for GRT in state 51 resolved as shift
+WARNING: shift/reduce conflict for SMLE in state 51 resolved as shift
+WARNING: shift/reduce conflict for GRTE in state 51 resolved as shift
+WARNING: shift/reduce conflict for EQL in state 51 resolved as shift
+WARNING: shift/reduce conflict for DIF in state 51 resolved as shift
+WARNING: shift/reduce conflict for AND in state 51 resolved as shift
+WARNING: shift/reduce conflict for OR in state 51 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 51 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 52 resolved as shift
+WARNING: shift/reduce conflict for SUBST in state 52 resolved as shift
+WARNING: shift/reduce conflict for MULT in state 52 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 52 resolved as shift
+WARNING: shift/reduce conflict for SML in state 52 resolved as shift
+WARNING: shift/reduce conflict for GRT in state 52 resolved as shift
+WARNING: shift/reduce conflict for SMLE in state 52 resolved as shift
+WARNING: shift/reduce conflict for GRTE in state 52 resolved as shift
+WARNING: shift/reduce conflict for EQL in state 52 resolved as shift
+WARNING: shift/reduce conflict for DIF in state 52 resolved as shift
+WARNING: shift/reduce conflict for AND in state 52 resolved as shift
+WARNING: shift/reduce conflict for OR in state 52 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 52 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 53 resolved as shift
+WARNING: shift/reduce conflict for SUBST in state 53 resolved as shift
+WARNING: shift/reduce conflict for MULT in state 53 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 53 resolved as shift
+WARNING: shift/reduce conflict for SML in state 53 resolved as shift
+WARNING: shift/reduce conflict for GRT in state 53 resolved as shift
+WARNING: shift/reduce conflict for SMLE in state 53 resolved as shift
+WARNING: shift/reduce conflict for GRTE in state 53 resolved as shift
+WARNING: shift/reduce conflict for EQL in state 53 resolved as shift
+WARNING: shift/reduce conflict for DIF in state 53 resolved as shift
+WARNING: shift/reduce conflict for AND in state 53 resolved as shift
+WARNING: shift/reduce conflict for OR in state 53 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 53 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 54 resolved as shift
+WARNING: shift/reduce conflict for SUBST in state 54 resolved as shift
+WARNING: shift/reduce conflict for MULT in state 54 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 54 resolved as shift
+WARNING: shift/reduce conflict for SML in state 54 resolved as shift
+WARNING: shift/reduce conflict for GRT in state 54 resolved as shift
+WARNING: shift/reduce conflict for SMLE in state 54 resolved as shift
+WARNING: shift/reduce conflict for GRTE in state 54 resolved as shift
+WARNING: shift/reduce conflict for EQL in state 54 resolved as shift
+WARNING: shift/reduce conflict for DIF in state 54 resolved as shift
+WARNING: shift/reduce conflict for AND in state 54 resolved as shift
+WARNING: shift/reduce conflict for OR in state 54 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 54 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 55 resolved as shift
+WARNING: shift/reduce conflict for SUBST in state 55 resolved as shift
+WARNING: shift/reduce conflict for MULT in state 55 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 55 resolved as shift
+WARNING: shift/reduce conflict for SML in state 55 resolved as shift
+WARNING: shift/reduce conflict for GRT in state 55 resolved as shift
+WARNING: shift/reduce conflict for SMLE in state 55 resolved as shift
+WARNING: shift/reduce conflict for GRTE in state 55 resolved as shift
+WARNING: shift/reduce conflict for EQL in state 55 resolved as shift
+WARNING: shift/reduce conflict for DIF in state 55 resolved as shift
+WARNING: shift/reduce conflict for AND in state 55 resolved as shift
+WARNING: shift/reduce conflict for OR in state 55 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 55 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 56 resolved as shift
+WARNING: shift/reduce conflict for SUBST in state 56 resolved as shift
+WARNING: shift/reduce conflict for MULT in state 56 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 56 resolved as shift
+WARNING: shift/reduce conflict for SML in state 56 resolved as shift
+WARNING: shift/reduce conflict for GRT in state 56 resolved as shift
+WARNING: shift/reduce conflict for SMLE in state 56 resolved as shift
+WARNING: shift/reduce conflict for GRTE in state 56 resolved as shift
+WARNING: shift/reduce conflict for EQL in state 56 resolved as shift
+WARNING: shift/reduce conflict for DIF in state 56 resolved as shift
+WARNING: shift/reduce conflict for AND in state 56 resolved as shift
+WARNING: shift/reduce conflict for OR in state 56 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 56 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 57 resolved as shift
+WARNING: shift/reduce conflict for SUBST in state 57 resolved as shift
+WARNING: shift/reduce conflict for MULT in state 57 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 57 resolved as shift
+WARNING: shift/reduce conflict for SML in state 57 resolved as shift
+WARNING: shift/reduce conflict for GRT in state 57 resolved as shift
+WARNING: shift/reduce conflict for SMLE in state 57 resolved as shift
+WARNING: shift/reduce conflict for GRTE in state 57 resolved as shift
+WARNING: shift/reduce conflict for EQL in state 57 resolved as shift
+WARNING: shift/reduce conflict for DIF in state 57 resolved as shift
+WARNING: shift/reduce conflict for AND in state 57 resolved as shift
+WARNING: shift/reduce conflict for OR in state 57 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 57 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 58 resolved as shift
+WARNING: shift/reduce conflict for SUBST in state 58 resolved as shift
+WARNING: shift/reduce conflict for MULT in state 58 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 58 resolved as shift
+WARNING: shift/reduce conflict for SML in state 58 resolved as shift
+WARNING: shift/reduce conflict for GRT in state 58 resolved as shift
+WARNING: shift/reduce conflict for SMLE in state 58 resolved as shift
+WARNING: shift/reduce conflict for GRTE in state 58 resolved as shift
+WARNING: shift/reduce conflict for EQL in state 58 resolved as shift
+WARNING: shift/reduce conflict for DIF in state 58 resolved as shift
+WARNING: shift/reduce conflict for AND in state 58 resolved as shift
+WARNING: shift/reduce conflict for OR in state 58 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 58 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 59 resolved as shift
+WARNING: shift/reduce conflict for SUBST in state 59 resolved as shift
+WARNING: shift/reduce conflict for MULT in state 59 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 59 resolved as shift
+WARNING: shift/reduce conflict for SML in state 59 resolved as shift
+WARNING: shift/reduce conflict for GRT in state 59 resolved as shift
+WARNING: shift/reduce conflict for SMLE in state 59 resolved as shift
+WARNING: shift/reduce conflict for GRTE in state 59 resolved as shift
+WARNING: shift/reduce conflict for EQL in state 59 resolved as shift
+WARNING: shift/reduce conflict for DIF in state 59 resolved as shift
+WARNING: shift/reduce conflict for AND in state 59 resolved as shift
+WARNING: shift/reduce conflict for OR in state 59 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 59 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 60 resolved as shift
+WARNING: shift/reduce conflict for SUBST in state 60 resolved as shift
+WARNING: shift/reduce conflict for MULT in state 60 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 60 resolved as shift
+WARNING: shift/reduce conflict for SML in state 60 resolved as shift
+WARNING: shift/reduce conflict for GRT in state 60 resolved as shift
+WARNING: shift/reduce conflict for SMLE in state 60 resolved as shift
+WARNING: shift/reduce conflict for GRTE in state 60 resolved as shift
+WARNING: shift/reduce conflict for EQL in state 60 resolved as shift
+WARNING: shift/reduce conflict for DIF in state 60 resolved as shift
+WARNING: shift/reduce conflict for AND in state 60 resolved as shift
+WARNING: shift/reduce conflict for OR in state 60 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 60 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 61 resolved as shift
+WARNING: shift/reduce conflict for SUBST in state 61 resolved as shift
+WARNING: shift/reduce conflict for MULT in state 61 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 61 resolved as shift
+WARNING: shift/reduce conflict for SML in state 61 resolved as shift
+WARNING: shift/reduce conflict for GRT in state 61 resolved as shift
+WARNING: shift/reduce conflict for SMLE in state 61 resolved as shift
+WARNING: shift/reduce conflict for GRTE in state 61 resolved as shift
+WARNING: shift/reduce conflict for EQL in state 61 resolved as shift
+WARNING: shift/reduce conflict for DIF in state 61 resolved as shift
+WARNING: shift/reduce conflict for AND in state 61 resolved as shift
+WARNING: shift/reduce conflict for OR in state 61 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 61 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 62 resolved as shift
+WARNING: shift/reduce conflict for SUBST in state 62 resolved as shift
+WARNING: shift/reduce conflict for MULT in state 62 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 62 resolved as shift
+WARNING: shift/reduce conflict for SML in state 62 resolved as shift
+WARNING: shift/reduce conflict for GRT in state 62 resolved as shift
+WARNING: shift/reduce conflict for SMLE in state 62 resolved as shift
+WARNING: shift/reduce conflict for GRTE in state 62 resolved as shift
+WARNING: shift/reduce conflict for EQL in state 62 resolved as shift
+WARNING: shift/reduce conflict for DIF in state 62 resolved as shift
+WARNING: shift/reduce conflict for AND in state 62 resolved as shift
+WARNING: shift/reduce conflict for OR in state 62 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 62 resolved as shift
+WARNING: shift/reduce conflict for CPRT in state 77 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 77 resolved as shift
+WARNING: shift/reduce conflict for SUBST in state 77 resolved as shift
+WARNING: shift/reduce conflict for MULT in state 77 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 77 resolved as shift
+WARNING: shift/reduce conflict for SML in state 77 resolved as shift
+WARNING: shift/reduce conflict for GRT in state 77 resolved as shift
+WARNING: shift/reduce conflict for SMLE in state 77 resolved as shift
+WARNING: shift/reduce conflict for GRTE in state 77 resolved as shift
+WARNING: shift/reduce conflict for EQL in state 77 resolved as shift
+WARNING: shift/reduce conflict for DIF in state 77 resolved as shift
+WARNING: shift/reduce conflict for AND in state 77 resolved as shift
+WARNING: shift/reduce conflict for OR in state 77 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 77 resolved as shift
+WARNING: shift/reduce conflict for CPRT in state 78 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 78 resolved as shift
+WARNING: shift/reduce conflict for SUBST in state 78 resolved as shift
+WARNING: shift/reduce conflict for MULT in state 78 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 78 resolved as shift
+WARNING: shift/reduce conflict for SML in state 78 resolved as shift
+WARNING: shift/reduce conflict for GRT in state 78 resolved as shift
+WARNING: shift/reduce conflict for SMLE in state 78 resolved as shift
+WARNING: shift/reduce conflict for GRTE in state 78 resolved as shift
+WARNING: shift/reduce conflict for EQL in state 78 resolved as shift
+WARNING: shift/reduce conflict for DIF in state 78 resolved as shift
+WARNING: shift/reduce conflict for AND in state 78 resolved as shift
+WARNING: shift/reduce conflict for OR in state 78 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 78 resolved as shift
+WARNING: shift/reduce conflict for CPRT in state 79 resolved as shift
+WARNING: shift/reduce conflict for ADD in state 79 resolved as shift
+WARNING: shift/reduce conflict for SUBST in state 79 resolved as shift
+WARNING: shift/reduce conflict for MULT in state 79 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 79 resolved as shift
+WARNING: shift/reduce conflict for SML in state 79 resolved as shift
+WARNING: shift/reduce conflict for GRT in state 79 resolved as shift
+WARNING: shift/reduce conflict for SMLE in state 79 resolved as shift
+WARNING: shift/reduce conflict for GRTE in state 79 resolved as shift
+WARNING: shift/reduce conflict for EQL in state 79 resolved as shift
+WARNING: shift/reduce conflict for DIF in state 79 resolved as shift
+WARNING: shift/reduce conflict for AND in state 79 resolved as shift
+WARNING: shift/reduce conflict for OR in state 79 resolved as shift
+WARNING: shift/reduce conflict for NOT in state 79 resolved as shift
+WARNING: shift/reduce conflict for CKEY in state 82 resolved as shift
+WARNING: shift/reduce conflict for SML in state 106 resolved as shift
+WARNING: shift/reduce conflict for GRT in state 106 resolved as shift
+WARNING: shift/reduce conflict for SMLE in state 106 resolved as shift
+WARNING: shift/reduce conflict for GRTE in state 106 resolved as shift
+WARNING: shift/reduce conflict for EQL in state 106 resolved as shift
+WARNING: shift/reduce conflict for DIF in state 106 resolved as shift
